@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/animate.css" />
+  <link rel="stylesheet" href="../css/fontAwesome.css" />
+  <!-- js links.................... -->
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/sweetalert.js"></script>
+  <title>profile-page</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md bg-light shadow-lg">
+    <div class="container-fluid">
+      <img src="../images/siteLogo.webp" alt="logo" width="60" class="rounded-circle" />
+      <a href="#" class="navbar-brand text-white mx-4"> HMS </a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#mymenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse" id="mymenu">
+        <ul class="navbar-nav w-100 justify-content-end">
+          <div class="input-group w-50">
+            <input type="search" class="form-control" placeholder="Search by Name, Email, RoomNo....." />
+            <span class="bg-primary input-group-text text-white btn">Search</span>
+          </div>
+          <button class="logout bg-primary text-white fw-bold px-4 mx-3 py-2 border border-0 rounded">
+            Logout
+          </button>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="nav nav-tabs mt-5">
+          <li class="nav-item">
+            <a href="#booking" class="nav-link active" data-bs-toggle="tab">
+              Booking
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#login" class="nav-link" data-bs-toggle="tab">
+              In House
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#login" class="nav-link" data-bs-toggle="tab">
+              Archieve
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#login" class="nav-link" data-bs-toggle="tab">
+              Cashier
+            </a>
+          </li>
+        </ul>
+        <!-- nav panes.................... -->
+        <div class="tab-content ">
+          <div class="tab-pane container mt-3 active" id="booking">
+            <div class="row my-5">
+              <div class="col-md-4 text-center">
+                <button data-bs-toggle="modal" data-bs-target="#registration-modal" class="text-white fw-bold bg-primary py-2 px-3 rounded border-0">
+                  Register
+                </button>
+              </div>
+              <div class="col-md-4 text-center">
+                <button class="text-white fw-bold bg-primary py-2 px-3 rounded border-0">
+                  Print
+                </button>
+              </div>
+              <div class="col-md-4 text-center">
+                <button class="text-white fw-bold bg-primary py-2 px-3 rounded border-0">
+                  Total Booking
+                </button>
+              </div>
+
+              </button>
+            </div>
+            <div class="">
+              <h1>All Booking Data</h1>
+              <table class="table text-center tabel-striped">
+                <thead>
+                  <tr>
+                    <th>Sr</th>
+                    <th>Location</th>
+                    <th>Room No</th>
+                    <th>Full Name</th>
+                    <th>Checkin</th>
+                    <th>Checkout</th>
+                    <th>Total Persons</th>
+                    <th>Notice</th>
+                    <th>Registered At</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <td>1</td>
+                  <td>Mumbai</td>
+                  <td>15</td>
+                  <td>Milan Saluja</td>
+                  <td>07-03-2025</td>
+                  <td>10-03-2025</td>
+                  <td>3</td>
+                  <td>All Includes</td>
+                  <td>01-03-25</td>
+                <td>
+                    <button class="btn btn-primary p-1 px-2"><i class="fa fa-edit"></i></button>
+                    <button class="btn text-white  p-1 px-2 btn-info"><i class="fa fa-check"></i></button>
+                    <button class="btn btn-danger p-1 px-2"><i class="fa fa-trash"></i></button>
+                  </td>
+                </tr>
+         
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- login .............................................................. -->
+          <!-- <div class="tab-pane container mt-3" id="login">
+              <form class="login-form">
+                <input
+                  required
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  class="mb-3 form-control"
+                />
+                <input
+                  required
+                  name="password"
+                  type="password"
+                  placeholder="password"
+                  class="mb-3 form-control"
+                />
+                <button type="submit" class="btn btn-primary w-100">
+                  Login
+                </button>
+              </form>
+            </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- starting of modals .............. -->
+
+  <div class="modal" id="registration-modal">
+    <div class="modal-header">
+      <h1>Registration Form </h1>
+    </div>
+    <div class="body-body">
+
+    </div>
+  </div>
+
+  <script src="../js/profile.js"></script>
+</body>
+
+</html>

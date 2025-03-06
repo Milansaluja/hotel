@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--  css links............ -->
+    <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/fontAwesome.css" />
+    <!-- js links.................... -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/sweetalert.js"></script>
+
+    <title>Hotel Booking Site</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md bg-light shadow-lg">
+      <div class="container-fluid">
+        <img
+          src="images/siteLogo.webp"
+          alt="logo"
+          width="60"
+          class="rounded-circle"
+        />
+        <a href="#" class="navbar-brand text-white mx-4"> HMS </a>
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#mymenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="mymenu">
+          <ul class="navbar-nav w-100 justify-content-end">
+            <li class="nav-item text-white fw-bold mx-3">Just For Code</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="nav nav-tabs mt-5">
+            <li class="nav-item">
+              <a href="#signup" class="nav-link active" data-bs-toggle="tab">
+                Signup
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#login" class="nav-link" data-bs-toggle="tab"> Login </a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane container mt-3 active" id="signup">
+              <form class="reg-form">
+                <input
+                  required
+                  name="fullname"
+                  type="text"
+                  placeholder="Enter your full name"
+                  class="mb-3 form-control"
+                />
+                <input
+                  required
+                  name="hotelname"
+                  type="text"
+                  placeholder="Hotel Name"
+                  class="mb-3 form-control"
+                />
+                <input
+                  required
+                  name="totalroom"
+                  type="number"
+                  placeholder="No of Hotels Room"
+                  class="mb-3 form-control"
+                />
+                <input
+                  required
+                  name="mobile"
+                  type="number"
+                  placeholder="Mobile Number"
+                  class="mb-3 form-control"
+                />
+                <input
+                  required
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  class="mb-3 form-control"
+                />
+                <input
+                  required
+                  name="password"
+                  type="password"
+                  placeholder="password"
+                  class="mb-3 form-control"
+                />
+                <button type="submit" class="btn btn-primary w-100">
+                  Register
+                </button>
+              </form>
+            </div>
+            <div class="tab-pane container mt-3" id="login">
+              <form class="login-form">
+                <input
+                  required
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  class="mb-3 form-control"
+                />
+                <input
+                  required
+                  name="password"
+                  type="password"
+                  placeholder="password"
+                  class="mb-3 form-control"
+                />
+                <button type="submit" class="btn btn-primary w-100">
+                  Login
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div
+          class="d-flex justify-content-center align-items-center col-md-6 mt-5"
+        >
+          <img src="images/homeImg3.jpg" class="w-100" alt="img" />
+        </div>
+      </div>
+    </div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
