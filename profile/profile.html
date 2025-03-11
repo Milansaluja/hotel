@@ -154,14 +154,64 @@
 
   <!-- starting of modals .............. -->
 
-  <div class="modal" id="registration-modal">
-    <div class="modal-header">
-      <h1>Registration Form </h1>
-    </div>
-    <div class="body-body">
+  <div class="modal animate__animated animate__zoomIn" id="registration-modal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Registration form</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="body-body p-4">
+          <!-- form............................ -->
+          <form class="booking-form">
+            <div class="row">
+              <div class="col-md-6">
+                <input name="fullname" type="text" placeholder="FullName" class="mb-3 form-control">
+              </div>
+              <div class="col-md-6">
+                <input name="location"  type="text" placeholder="Location" class="mb-3 form-control">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <input name="roomNo" type="text" placeholder="Room No" class="mb-3 form-control">
+              </div>
+              <div class="col-md-6">
+                <input name="totalPeople" type="text" placeholder="Total People" class="mb-3 form-control">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="Check in date">Check in date</label>
+                <input name="checkInDate" type="date" class="mb-3 form-control">
+              </div>
+              <div class="col-md-6">
+                <label for="Check out date">Check out date</label>
+                <input  name="checkOutDate" type="date"  class="mb-3 form-control">
+              </div>
+            </div>
 
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <input name="price" type="number" placeholder="Price" class="mb-3 form-control">
+              </div>
+              <div class="col-md-6">
+                <input name="mobileNumber"  type="number" placeholder="Mobile" class="mb-3 form-control">
+              </div>
+            </div>
+            <div class="row mb-3">
+             <textarea name="notice" class="form-control" placeholder="Notice"></textarea>
+            </div>
+            <div class="row mb-3">
+             <button type="submit" class="btn action-btn bg-primary text-white fw-bold mb-3">Register</button>
+             <button type="update" class="btn d-none  bg-primary bg-danger text-white fw-bold">Update</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
     </div>
-  </div>
+  </div>    
 
   <script src="../js/profile.js"></script>
 </body>
