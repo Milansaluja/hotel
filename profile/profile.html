@@ -159,17 +159,17 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5>Registration form</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close b-modal-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="body-body p-4">
           <!-- form............................ -->
           <form class="booking-form">
             <div class="row">
               <div class="col-md-6">
-                <input name="fullname" type="text" placeholder="FullName" class="mb-3 form-control">
+                <input name="fullname" type="text" placeholder="FullName" required class="mb-3 form-control">
               </div>
               <div class="col-md-6">
-                <input name="location"  type="text" placeholder="Location" class="mb-3 form-control">
+                <input name="location"  type="text" placeholder="Location" required class="mb-3 form-control">
               </div>
             </div>
             <div class="row mb-3">
@@ -177,17 +177,17 @@
                 <input name="roomNo" type="text" placeholder="Room No" class="mb-3 form-control">
               </div>
               <div class="col-md-6">
-                <input name="totalPeople" type="text" placeholder="Total People" class="mb-3 form-control">
+                <input name="totalPeople" type="text" placeholder="Total People" required class="mb-3 form-control">
               </div>
             </div>
             <div class="row mb-3">
               <div class="col-md-6">
                 <label for="Check in date">Check in date</label>
-                <input name="checkInDate" type="date" class="mb-3 form-control">
+                <input name="checkInDate" type="date" required class="mb-3 form-control">
               </div>
               <div class="col-md-6">
                 <label for="Check out date">Check out date</label>
-                <input  name="checkOutDate" type="date"  class="mb-3 form-control">
+                <input  name="checkOutDate" type="date" required class="mb-3 form-control">
               </div>
             </div>
 
@@ -196,7 +196,7 @@
                 <input name="price" type="number" placeholder="Price" class="mb-3 form-control">
               </div>
               <div class="col-md-6">
-                <input name="mobileNumber"  type="number" placeholder="Mobile" class="mb-3 form-control">
+                <input name="mobileNumber"  type="number" placeholder="Mobile" required class="mb-3 form-control">
               </div>
             </div>
             <div class="row mb-3">

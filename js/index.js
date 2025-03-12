@@ -49,10 +49,10 @@ regForm.onsubmit = (e) => {
 loginForm.onsubmit = (e) => {
   e.preventDefault();
   let checkEmail = allUserInfo.find((data) => {
-    return data.email == loginInputs[0].value;
+    return data.email == loginInputs[0].value; // agar (return) nhi lagana to ()=>{} replace it with... allUserInfo.find(data=>()) ....
   });
   if (checkEmail) {
-    console.log(checkEmail);
+    console.log("this is checkemail", checkEmail);
     if (checkEmail.password == loginInputs[1].value) {
       loginBtn.innerText = "Please wait...";
       setTimeout(() => {
@@ -68,4 +68,3 @@ loginForm.onsubmit = (e) => {
     swal("Sorry", "Email not found ", "warning");
   }
 };
-
