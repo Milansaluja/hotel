@@ -18,13 +18,25 @@ user = fetchData.email.split("@")[0]; // split @ k bad wale ko alg kr dega......
 
 //  getting data from local storage..................
 const getData = (key) => {
-if(user!==null){
-  return JSON.parse(localStorage.getItem(key))
-}
+  if (user !== null) {
+    return JSON.parse(localStorage.getItem(key));
+  }
 };
-
-allBookingData = getData(user + "_allBData");
+allBookingData = getData(user + "_allBData") || []; // this code says that database mai is name ki jo bhi entries hai wo muje lakar dedo.atfirst allNookingData will be empty , yai null result dega ...yai khali tab kam karega jab page refresh hoga ya user page par dubara ayega ,beacuse us time allBookingData empy nhi hoga or kuch data hoga to getData() call hoga and data fetxh kreke empty allBookinData mai data dalega jo UI mai reflect karega , thats the point of this codee.......................❤✔
 console.log("getData", allBookingData); // yai function khali islyie banaya gaya hai taki jabn bhi page refresh ho ya dubara isppa aye tab data gyab na ho wahi mile local storage sai fetched hokar............
+
+// formate date.............
+const formatDate = (data,isTime) => {
+  const date = new Date(data);
+  const yy = date.getFullYear();
+  let mm = date.getMonth() + 1;
+  let dd = date.getDate();
+  const time = date.toLocaleTimeString();
+  dd = dd < 10 ? "0" + dd : dd;
+  mm = mm < 10 ? "0" + mm : mm;
+  return `${dd}-${mm}-${yy} ${isTime?time:""}`;
+};
+formatDate();
 
 // logout code...............................................
 // agar session storage mai data nhi hai tab..................
@@ -46,7 +58,10 @@ else {
 //  booking code,;.................
 bookingForm.onsubmit = (e) => {
   e.preventDefault();
-  let data = { notice: bookingTextArea.value };
+  let data = {
+    notice: bookingTextArea.value,
+    createdAt: new Date()
+  };
 
   for (let el of allBInput) {
     let key = el.name;
@@ -73,12 +88,12 @@ const showBookingData = () => {
                   <td>${item.location}</td>
                   <td>${item.roomNo}</td>
                   <td>${item.fullname}</td>
-                  <td>${item.checkInDate}</td>
-                  <td>${item.checkOutDate}</td>
+                  <td>${formatDate(item.checkInDate)}</td>
+                  <td>${formatDate(item.checkOutDate)}</td>
                   <td>${item.totalPeople}</td>
                   <td>${item.notice}</td>
-                  <td>01-03-25</td>
-                <td>
+                  <td>${formatDate(item.createdAt,true)}</td>
+                <td class="text-nowrap">
                     <button class="btn btn-primary p-1 px-2"><i class="fa fa-edit"></i></button>
                     <button class="btn text-white  p-1 px-2 btn-info"><i class="fa fa-check"></i></button>
                     <button class="btn btn-danger p-1 px-2"><i class="fa fa-trash"></i></button>
