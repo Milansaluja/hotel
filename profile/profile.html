@@ -68,7 +68,7 @@
           <div class="tab-pane container mt-3 active" id="booking">
             <div class="row my-5">
               <div class="col-md-4 text-center">
-                <button data-bs-toggle="modal" data-bs-target="#registration-modal" class="text-white fw-bold bg-primary py-2 px-3 rounded border-0">
+                <button data-bs-toggle="modal" data-bs-target="#registration-modal" class="text-white fw-bold bg-primary py-2 px-3 rounded border-0  btn-register">
                   Register
                 </button>
               </div>
@@ -88,16 +88,18 @@
               <h1>All Booking Data</h1>
               <table class="table text-center tabel-striped">
                 <thead>
-                  <tr>
+                  <tr class="text-nowrap">
                     <th>Sr</th>
+                    <th>Full Name</th>
                     <th>Location</th>
                     <th>Room No</th>
-                    <th>Full Name</th>
+                    <th>Total Persons</th>
                     <th>Checkin</th>
                     <th>Checkout</th>
-                    <th>Total Persons</th>
+                    <th>Price</th>
+                    <th>Mobile</th>
                     <th>Notice</th>
-                    <th>Registered At</th>
+                    <th>Created At</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -165,7 +167,7 @@
             </div>
             <div class="row mb-3">
              <button type="submit" class="btn action-btn bg-primary text-white fw-bold mb-3">Register</button>
-             <button type="update" class="btn d-none  bg-primary bg-danger text-white fw-bold">Update</button>
+             <button type="update" class="btn d-none  bg-primary bg-danger text-white fw-bold showOnEdit">Update</button>
             </div>
           </form>
 
