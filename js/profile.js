@@ -5,13 +5,12 @@ const logout = document.querySelector(".logout");
 const bookingForm = document.querySelector(".booking-form");
 // console.log(bookingForm);
 const allBInput = document.querySelectorAll(".booking-form input");
-// console.log("inputs",allBInput);
+console.log("inputs", allBInput);
 const bookingTextArea = bookingForm.querySelector("textarea");
 // console.log(bookingTextArea);
 const bCloseBtn = document.querySelector(".b-modal-close-btn");
 const bookingList = document.querySelector(".booking-list");
 const regOpenForEdit = document.querySelector(".btn-register");
-
 
 // Fetching data from Browser storage Database.................
 let fetchData = JSON.parse(sessionStorage.getItem("temporaryData"));
@@ -63,7 +62,7 @@ bookingForm.onsubmit = (e) => {
   e.preventDefault();
   let data = {
     notice: bookingTextArea.value,
-    createdAt: new Date(),
+    createdAt: new Date(), // yai call hoga to us time ka current time lauch hoga .
   };
 
   for (let el of allBInput) {
@@ -85,7 +84,7 @@ bookingForm.onsubmit = (e) => {
 const showBookingData = () => {
   bookingList.innerHTML = "";
   allBookingData?.forEach((item, index) => {
-    console.log("showBookingData", item, index);
+    // console.log("showBookingData", item, index);
     bookingList.innerHTML += `<tr>
                   <td class="text-nowrap">${index + 1}</td>
                   <td class="text-nowrap">${item.fullname}</td>
@@ -137,14 +136,36 @@ function editCode() {
       regOpenForEdit.click();
       showOnEdit[0].classList.add("d-none");
       showOnEdit[1].classList.remove("d-none");
+      let obj = allBookingData[index];
+      console.log(obj);
 
-      let tr = btn.parentElement.parentElement;
-      let allTd = tr.querySelectorAll("td");
+      allBInput[0].value = obj.fullname;
+      allBInput[1].value = obj.location;
+      allBInput[2].value = obj.roomNo;
+      allBInput[3].value = obj.totalPeople;
+      allBInput[4].value = obj.checkInDate;
+      allBInput[5].value = obj.checkOutDate;
+      allBInput[6].value = obj.price;
+      allBInput[7].value = obj.mobileNumber;
+      bookingTextArea.value = obj.notice;
 
-      // let i;
-      // for (i = 1; i < allTd.length - 3; i++) {
-      //   allBInput[i].value = allTd[i].innerText;
-      // }
+      showOnEdit[1].onclick = () => {
+        let formData = {
+          notice: bookingTextArea.value,
+          createdAt: new Date(),
+        };
+        for (let el of allBInput) {
+          let key = el.name;
+          formData[key] = el.value;
+        }
+        allBookingData[index] = formData;
+        showOnEdit[0].classList.remove("d-none");
+        showOnEdit[1].classList.add("d-none");
+        bookingForm.reset("");
+        bCloseBtn.click();
+        localStorage.setItem(user + "_allBData", JSON.stringify(allBookingData));
+        showBookingData();
+      };
     };
   });
 }
