@@ -57,6 +57,14 @@ else {
   });
 }
 
+
+// Prevent form submission on Enter key press
+bookingForm.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+  }
+}); // remember event listeners always registered on browser when pages loads and stored it 
+
 //  booking code,;.................
 bookingForm.onsubmit = (e) => {
   e.preventDefault();
