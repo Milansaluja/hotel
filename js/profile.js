@@ -5,7 +5,11 @@ const logout = document.querySelector(".logout");
 const bookingForm = document.querySelector(".booking-form");
 // console.log(bookingForm);
 const allBInput = document.querySelectorAll(".booking-form input");
-console.log("inputs", allBInput);
+// console.log("inputs", allBInput);
+const inHouseForm = document.querySelector(".inhouse-form");
+const allInHouseInput = document.querySelectorAll(".inhouse-form input");
+console.log(allInHouseInput);
+
 const bookingTextArea = bookingForm.querySelector("textarea");
 // console.log(bookingTextArea);
 const bCloseBtn = document.querySelector(".b-modal-close-btn");
@@ -177,3 +181,6 @@ function editCode() {
     };
   });
 }
+
+
+

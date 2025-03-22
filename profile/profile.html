@@ -43,12 +43,12 @@
       <div class="col-md-12">
         <ul class="nav nav-tabs mt-5">
           <li class="nav-item">
-            <a href="#booking" class="nav-link active" data-bs-toggle="tab">
+            <a href="#booking" class="nav-link " data-bs-toggle="tab">
               Booking
             </a>
           </li>
           <li class="nav-item">
-            <a href="#login" class="nav-link" data-bs-toggle="tab">
+            <a href="#inhouse" class="nav-link active" data-bs-toggle="tab">
               In House
             </a>
           </li>
@@ -65,7 +65,7 @@
         </ul>
         <!-- nav panes.................... -->
         <div class="tab-content ">
-          <div class="tab-pane container mt-3 active" id="booking">
+          <div class="tab-pane container mt-3 " id="booking">
             <div class="row my-5">
               <div class="col-md-4 text-center">
                 <button data-bs-toggle="modal" data-bs-target="#registration-modal" class="text-white fw-bold bg-primary py-2 px-3 rounded border-0  btn-register">
@@ -110,6 +110,51 @@
             </div>
           </div>
 
+<!-- IN-HOUSE CODE................... -->
+<div class="tab-pane container mt-3 active" id="inhouse">
+  <div class="row my-5">
+    <div class="col-md-4 text-center">
+      <button data-bs-toggle="modal" data-bs-target="#inhouse-modal" class="text-white fw-bold bg-primary py-2 px-3 rounded border-0  in-house-reg-btn">
+        Register
+      </button>
+    </div>
+    <div class="col-md-4 text-center">
+      <button class="text-white fw-bold bg-primary py-2 px-3 rounded border-0">
+        Print
+      </button>
+    </div>
+    <div class="col-md-4 text-center">
+      <button class="text-white fw-bold bg-primary py-2 px-3 rounded border-0">
+        Total Booking
+      </button>
+    </div>
+  </div>
+  
+  <div class="">
+    <h1>All In House Data</h1>
+    <table class="table text-center tabel-striped">
+      <thead>
+        <tr class="text-nowrap">
+          <th>Sr</th>
+          <th>Full Name</th>
+          <th>Location</th>
+          <th>Room No</th>
+          <th>Total Persons</th>
+          <th>Checkin</th>
+          <th>Checkout</th>
+          <th>Price</th>
+          <th>Mobile</th>
+          <th>Notice</th>
+          <th>Created At</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody class="inhouse-list">
+    <!--  data is coming here from profile.js -->
+      </tbody>
+    </table>
+  </div>
+</div>
         </div>
       </div>
     </div>
@@ -175,6 +220,66 @@
       </div>
     </div>
   </div>    
+  
+  <!-- INHOUSE CODE................. -->
+  <div class="modal animate__animated animate__zoomIn" id="inhouse-modal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>In House Form</h5>
+          <button type="button" class="btn-close b-modal-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="body-body p-4">
+          <!-- form............................ -->
+          <form class="inhouse-form">
+            <div class="row">
+              <div class="col-md-6">
+                <input name="fullname" type="text" placeholder="FullName" required class="mb-3 form-control">
+              </div>
+              <div class="col-md-6">
+                <input name="location"  type="text" placeholder="Location" required class="mb-3 form-control">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <input name="roomNo" type="text" placeholder="Room No" class="mb-3 form-control">
+              </div>
+              <div class="col-md-6">
+                <input name="totalPeople" type="text" placeholder="Total People" required class="mb-3 form-control">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="Check in date">Check in date</label>
+                <input name="checkInDate" type="date" required class="mb-3 form-control">
+              </div>
+              <div class="col-md-6">
+                <label for="Check out date">Check out date</label>
+                <input  name="checkOutDate" type="date" required class="mb-3 form-control">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <input name="price" type="number" placeholder="Price" class="mb-3 form-control">
+              </div>
+              <div class="col-md-6">
+                <input name="mobileNumber"  type="number" placeholder="Mobile" required class="mb-3 form-control">
+              </div>
+            </div>
+            <div class="row mb-3">
+             <textarea name="notice" class="form-control" placeholder="Notice"></textarea>
+            </div>
+            <div class="row mb-3">
+             <button type="submit" class="btn action-btn bg-primary text-white fw-bold mb-3">Register</button>
+             <button type="update" class="btn d-none  bg-primary bg-danger text-white fw-bold">Update</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>  
 
   <script src="../js/profile.js"></script>
 </body>
