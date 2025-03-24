@@ -1,19 +1,23 @@
 let user;
 let allBookingData = [];
+let allInHouseData = [];
 const hotelName = document.querySelector(".navbar-brand");
 const logout = document.querySelector(".logout");
 const bookingForm = document.querySelector(".booking-form");
 // console.log(bookingForm);
 const allBInput = document.querySelectorAll(".booking-form input");
 // console.log("inputs", allBInput);
-const inHouseForm = document.querySelector(".inhouse-form");
-const allInHouseInput = document.querySelectorAll(".inhouse-form input");
-console.log(allInHouseInput);
-
 const bookingTextArea = bookingForm.querySelector("textarea");
 // console.log(bookingTextArea);
-const bCloseBtn = document.querySelector(".b-modal-close-btn");
+
+const inHouseForm = document.querySelector(".inhouse-form");
+const allInHouseInput = document.querySelectorAll(".inhouse-form input");
+// console.log(allInHouseInput);
+const inHouseTextArea = inHouseForm.querySelector("textarea");
+// console.log(inHouseTextArea);
+const formCloseBtn = document.querySelectorAll(".btn-close");
 const bookingList = document.querySelector(".booking-list");
+const inHouseList = document.querySelector(".inhouse-list");
 const regOpenForEdit = document.querySelector(".btn-register");
 
 // Fetching data from Browser storage Database.................
@@ -30,6 +34,7 @@ const getData = (key) => {
 };
 allBookingData = getData(user + "_allBData") || []; // this code says that database mai is name ki jo bhi entries hai wo muje lakar dedo.atfirst allNookingData will be empty , yai null result dega ...yai khali tab kam karega jab page refresh hoga ya user page par dubara ayega ,beacuse us time allBookingData empy nhi hoga or kuch data hoga to getData() call hoga and data fetxh kreke empty allBookinData mai data dalega jo UI mai reflect karega , thats the point of this codee.......................❤✔
 console.log("getData", allBookingData); // yai function khali islyie banaya gaya hai taki jabn bhi page refresh ho ya dubara isppa aye tab data gyab na ho wahi mile local storage sai fetched hokar............
+allInHouseData = getData(user + "_allInHData") || [];
 
 // formate date functionality.............
 const formatDate = (data, isTime) => {
@@ -61,43 +66,55 @@ else {
   });
 }
 
-
 // Prevent form submission on Enter key press
 bookingForm.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
   }
-}); // remember event listeners always registered on browser when pages loads and stored it 
+}); // remember event listeners always registered on browser when pages loads and stored it
 
 //  booking code,;.................
 bookingForm.onsubmit = (e) => {
   e.preventDefault();
+  registrationFunc(bookingTextArea,allBInput,allBookingData,user + "_allBData");
+  bookingForm.reset("");
+  formCloseBtn[0].click(); // yai auto button click karke html sai registraion form close kr dega submit hote hi....
+  showData(bookingList,allBookingData);
+};
+
+// inHouse booking code,;.................
+inHouseForm.onsubmit = (e) => {
+  e.preventDefault();
+  registrationFunc(inHouseTextArea ,allInHouseInput,allInHouseData,user + "_allInHData");
+  inHouseForm .reset("");
+  formCloseBtn[1].click(); // yai auto button click karke html sai registraion form close kr dega submit hote hi....
+  showData(inHouseList,allInHouseData);
+};
+
+function registrationFunc(textarea,inputs,array,key) {
   let data = {
-    notice: bookingTextArea.value,
+    notice: textarea.value,
     createdAt: new Date(), // yai call hoga to us time ka current time lauch hoga .
   };
 
-  for (let el of allBInput) {
+  for (let el of inputs) {
     let key = el.name;
     data[key] = el.value;
   }
   // console.log("onsubmitObject", data); // data object mai ban chuka hai successfully...
-  allBookingData.push(data);
+  array.push(data);
   // console.log("submision data",allBookingData); // output [{}] ✔
 
-  localStorage.setItem(user + "_allBData", JSON.stringify(allBookingData));
+  localStorage.setItem(key, JSON.stringify(array));
   swal("Good Job !", "Registration success", "success");
-  bookingForm.reset("");
-  bCloseBtn.click(); // yai auto button click karke html sai registraion form close kr dega submit hote hi....
-  showBookingData();
-};
+}
 
 // show booking data in front Ui....................
-const showBookingData = () => {
-  bookingList.innerHTML = "";
-  allBookingData?.forEach((item, index) => {
+const showData = (element,array) => {
+  element.innerHTML = "";
+  array?.forEach((item, index) => {
     // console.log("showBookingData", item, index);
-    bookingList.innerHTML += `<tr>
+    element.innerHTML += `<tr>
                   <td class="text-nowrap">${index + 1}</td>
                   <td class="text-nowrap">${item.fullname}</td>
                   <td class="text-nowrap">${item.location}</td>
@@ -122,8 +139,9 @@ const showBookingData = () => {
   deleteCode(); // this will select the all buttons on every load.
   editCode();
 };
-showBookingData(); // jese hi data upload ho raha hai local storage par to globally current data jo nbhi hoga array object ki form mai muje wo data showBookingData() k lyie bhi milega usae UI updat hogi... local storage k data sai nhi....
+showData(bookingList,allBookingData); // jese hi data upload ho raha hai local storage par to globally current data jo nbhi hoga array object ki form mai muje wo data showBookingData() k lyie bhi milega usae UI updat hogi... local storage k data sai nhi....
 
+showData(inHouseList,allInHouseData)
 // delete code ...............
 
 function deleteCode() {
@@ -175,12 +193,12 @@ function editCode() {
         showOnEdit[1].classList.add("d-none");
         bookingForm.reset("");
         bCloseBtn.click();
-        localStorage.setItem(user + "_allBData", JSON.stringify(allBookingData));
+        localStorage.setItem(
+          user + "_allBData",
+          JSON.stringify(allBookingData)
+        );
         showBookingData();
       };
     };
   });
 }
-
-
-
